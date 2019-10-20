@@ -22,5 +22,5 @@ TITLE_LINE_NUMBER
 /bash
 /git
 
-Everytime you request the same subtopic it will respond with a different cheat sheet under the same subtopic.
+Everytime you request the same subtopic it will respond with a new cheat sheet variation of that subtopic.
 ```
