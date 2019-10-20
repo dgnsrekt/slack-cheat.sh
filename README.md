@@ -1,3 +1,5 @@
+UNDER DEVELOPMENT
+
 # slack-cheat.sh
 cheat.sh bot for slack. http://cheat.sh/
 ## Config
