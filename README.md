@@ -25,6 +25,8 @@ Usage: /{TOPIC} {SUBTOPIC}
   /learn {TOPIC} - Returns a descriptions of the language basics.
   /list {TOPIC} - Returns a list of common cheat sheets from the TOPIC.
   /hello {TOPIC} - Returns information on how to build and run hello world.
+  /oneliner {TOPIC} - Returns oneliners from the topcs.
+  /weird {TOPIC} - Returns weird things in the language.
 
 Examples:
   /python How do you reverse a list?
