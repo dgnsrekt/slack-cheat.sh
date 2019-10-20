@@ -24,6 +24,7 @@ Usage: /{TOPIC} {SUBTOPIC}
   /add {TOPIC} - Adds topic to list of commands. Must be a searchable topic.
   /learn {TOPIC} - Returns a descriptions of the language basics.
   /list {TOPIC} - Returns a list of common cheat sheets from the TOPIC.
+  /hello {TOPIC} - Returns information on how to build and run hello world.
 
 Examples:
   /python How do you reverse a list?
