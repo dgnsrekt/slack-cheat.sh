@@ -1,6 +1,14 @@
 # slack-cheat.sh
 cheat.sh bot for slack. http://cheat.sh/
 ## Config
+Evironmental Variables
+```
+OAUTH_ACCESS_TOKEN
+BOT_CHANNEL
+BOT_DISPLAY_NAME
+TOPICS
+TITLE_LINE_NUMBER
+```
 ## Heroku
 ## Commands
 ```
