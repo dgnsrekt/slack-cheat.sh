@@ -13,14 +13,14 @@ TITLE_LINE_NUMBER
 ## Help
 ```
 Usage: /{TOPIC} {SUBTOPIC}
-/help - Shows this message
-/topics - List all searchable topics.
-/add {TOPIC}- Adds topic to list of commands. Must be a searchable topic. 
 /python {SUBTOPIC} - Returns a python cheatsheet based on the sub.
 /rust {SUBTOPIC} - Returns a rust cheatsheet based on the sub.
 /linux {SUBTOPIC} - Returns a linux cheatsheet based on the sub.
 /bash {SUBTOPIC} - Returns a bash cheatsheet based on the sub.
 /git {SUBTOPIC} - Returns a git cheatsheet based on the sub.
+/help - Shows this message
+/list - List all searchable topics which can be added to the command list.
+/add {TOPIC}- Adds topic to list of commands. Must be a searchable topic. 
 
 Examples:
   /python How do you reverse a list?
