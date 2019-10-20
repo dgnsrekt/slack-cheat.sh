@@ -29,5 +29,6 @@ Examples:
   /python How do you reverse a list?
   /add haskell
 
-If you are not satisfied with the answer, request the same subtopic again. The bot will respond with a new unique cheat sheet variation of the requested subtopic.
+If you are not satisfied with the answer, request the same subtopic again. 
+The bot will respond with a new unique cheat sheet variation from the requested subtopic.
 ```
