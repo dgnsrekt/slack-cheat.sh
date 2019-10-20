@@ -18,13 +18,16 @@ Usage: /{TOPIC} {SUBTOPIC}
   /linux {SUBTOPIC} - Returns a linux cheatsheet based on the sub.
   /bash {SUBTOPIC} - Returns a bash cheatsheet based on the sub.
   /git {SUBTOPIC} - Returns a git cheatsheet based on the sub.
+  
   /help - Shows this message
-  /list - List all searchable topics which can be added to the command list.
-  /add {TOPIC}- Adds topic to list of commands. Must be a searchable topic. 
+  /topics - List all searchable topics which can be added to the command list.
+  /add {TOPIC} - Adds topic to list of commands. Must be a searchable topic.
+  /learn {TOPIC} - Returns a descriptions of the language basics.
+  /list {TOPIC} - Returns a list of common cheat sheets from the TOPIC.
 
 Examples:
   /python How do you reverse a list?
   /add haskell
 
-Everytime you request the same subtopic it will respond with a new unique cheat sheet variation of the requested subtopic.
+If you are not satisfied with the answer, request the same subtopic again. The bot will respond with a new unique cheat sheet variation of the requested subtopic.
 ```
