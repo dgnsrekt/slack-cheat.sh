@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+slackclient = "*"
+python-decouple = "*"
+requests-html = "*"
+logme = "*"
+flake8 = "*"
+
+[dev-packages]
+pylint = "*"
+black = "*"
+pytest-watch = "*"
+
+[requires]
+python_version = "3.7"
+
+[pipenv]
+allow_prereleases = true
