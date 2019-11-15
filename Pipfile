@@ -4,19 +4,19 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-slackclient = "*"
+logme = "*"
 python-decouple = "*"
 requests-html = "*"
-logme = "*"
-flake8 = "*"
+slackclient = "*"
 
 [dev-packages]
-pylint = "*"
-black = "*"
+black = "==19.10.b0"
+nox = "*"
 pytest-watch = "*"
+wemake-python-styleguide = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.8"
 
 [pipenv]
-allow_prereleases = true
+allow_prereleases = false
