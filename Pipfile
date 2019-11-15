@@ -14,6 +14,7 @@ black = "==19.10.b0"
 nox = "*"
 pytest-watch = "*"
 wemake-python-styleguide = "*"
+isort = "*"
 
 [requires]
 python_version = "3.8"
