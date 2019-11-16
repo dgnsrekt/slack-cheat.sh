@@ -1,9 +1,9 @@
+
+# slack-cheat.sh
+UNDER DEVELOPMENT
 [![Build Status](https://travis-ci.com/dgnsrekt/slack-cheatbot.svg?branch=master)](https://travis-ci.com/dgnsrekt/slack-cheatbot)
 [![Code Style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-UNDER DEVELOPMENT
-
-# slack-cheat.sh
 cheat.sh bot for slack. http://cheat.sh/
 ## Config
 Evironmental Variables
