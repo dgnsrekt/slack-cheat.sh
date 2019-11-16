@@ -16,6 +16,7 @@ def tests(session):
 def lint(session):
     """Linting using black/flake8."""
     session.install("wemake-python-styleguide", "black", "isort")
-    session.run("isort", "-rc", ".")
+    session.run("isort", "-rc", "tests")
+    session.run("isort", "-rc", "slack_cheat")
     session.run("black", "--line-length", "99", "--check", ".")
     session.run("flake8", "g_packer")
