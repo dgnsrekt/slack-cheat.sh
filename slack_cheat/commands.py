@@ -1,11 +1,7 @@
 """Functions used to send question requested."""
 from typing import Optional as Opt
 
-from api import (
-    get_request,
-    parse_response,
-    prepare_question_request,
-)
+from api import get_request, parse_response, prepare_question_request
 
 
 URL = "http://cheat.sh/"
