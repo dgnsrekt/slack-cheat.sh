@@ -1,13 +1,15 @@
 """Functions used to send question requested."""
 from typing import Optional as Opt
 
-from api import get_request, parse_response, prepare_question_request
+from .api import get_request, parse_response, prepare_question_request
 
 
 URL = "http://cheat.sh/"
 
 
-def question_request(topic: str, sub: str, index: Opt[int] = None, comments=False) -> Opt[str]:
+def question_request(
+    topic: str, sub: str, index: Opt[int] = None, comments: bool = False
+) -> Opt[str]:
     """Answer question about .
 
     :param topic:
@@ -62,45 +64,78 @@ def clean_commandlist_response(response):
     return "\n".join(clean)
 
 
-def basic_command(url):
-    """Used to make request. Helper used to reduce repetition."""
-    response = get_request(url)
-    return parse_response(response)
+class Commands:
+    """Command list."""
 
+    def __init__(self):
 
-def list_topics():
-    """Gets a list of all cheat sheets topics."""
-    url = f"{URL}:list?T"
-    parsed_response = basic_command(url)
-    return clean_commandlist_response(parsed_response)
+        self.commands = {
+            "topics": self.list_topics,
+            "learn": self.language_basics,
+            "list": self.list_subtopics,
+            "hello": self.hello,
+            "oneliner": self.one_liners,
+            "weird": self.weird,
+            "python": self.question,
+        }
 
+    def add_topic(self, topic: str):
+        self.commands[topic] = self.question
 
-def list_common_subs(topic: str):
-    """Gets a list of all subtopics."""
-    url = f"{URL}/{topic}/:list?T"
-    parsed_response = basic_command(url)
-    return clean_commandlist_response(parsed_response)
+    def list_commands(self):
+        return list(self.commands)
 
+    def _basic_command(self, url):  # noqa: WPS602
+        """Used to make request. Helper used to reduce repetition."""
+        response = get_request(url)
+        return parse_response(response)
 
-def language_basics(topic: str):
-    """Gets a snippet for getting started with the language."""
-    url = f"{URL}/{topic}/:learn?T"
-    return basic_command(url)
+    def list_topics(self, *args, **kwargs):
+        """Gets a list of all cheat sheets topics."""
+        url = f"{URL}:list?T"
+        parsed_response = self._basic_command(url)
+        return clean_commandlist_response(parsed_response)
 
+    def list_subtopics(self, *args, **kwargs):
+        """Gets a list of all subtopics."""
+        topic = kwargs["topic"]
+        url = f"{URL}/{topic}/:list?T"
+        parsed_response = self._basic_command(url)
+        return clean_commandlist_response(parsed_response)
 
-def hello_world(topic: str):
-    """Get instructions on how to install, build, run, script hello world."""
-    url = f"{URL}/{topic}/:hello?T"
-    return basic_command(url)
+    def language_basics(self, *args, **kwargs):
+        """Gets a snippet for getting started with the language."""
+        topic = kwargs["topic"]
+        url = f"{URL}/{topic}/:learn?T"
+        return self._basic_command(url)
 
+    def hello(self, *args, **kwargs):
+        """Get instructions on how to install, build, run, script hello world."""
+        topic = kwargs["topic"]
+        url = f"{URL}/{topic}/:hello?T"
+        return self._basic_command(url)
 
-def common_oneliners(topic: str):
-    """Gets a list of common oneliners."""
-    url = f"{URL}h/{topic}/1line?T"
-    return basic_command(url)
+    def one_liners(self, *args, **kwargs):
+        """Gets a list of common oneliners."""
+        topic = kwargs["topic"]
+        url = f"{URL}h/{topic}/1line?T"
+        return self._basic_command(url)
 
+    def weird(self, *args, **kwargs):
+        """Gets description of weird things in the language."""
+        topic = kwargs["topic"]
+        url = f"{URL}/{topic}/weird?T"
+        return self._basic_command(url)
 
-def weird_stuff(topic: str):
-    """Gets description of weird things in the language."""
-    url = f"{URL}/{topic}/weird?T"
-    return basic_command(url)
+    def question(self, *args, **kwargs):
+        topic = kwargs["command_name"]
+        sub = kwargs["sub_topic"]
+        return question_request(topic, sub)
+
+    def execute(self, command_name: str, *args, **kwargs):
+        assert command_name in self.commands  # fix
+        kwargs["command_name"] = command_name
+        return self.commands[command_name](*args, **kwargs)
+
+    def __str__(self):
+        return "\n".join([f"{key} : {value.__name__}" for key, value in self.commands.items()])
