@@ -6,5 +6,5 @@ python:
   - "nightly"  # nightly build
 install:
   - pip install pipenv
-  - pipenv sync
+  - pipenv sync --dev
 script: nox
