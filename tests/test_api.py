@@ -1,3 +1,5 @@
+"""Tests for slack_cheat api module."""
+
 from slack_cheat.api import remove_puctuation
 
 
