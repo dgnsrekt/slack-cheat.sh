@@ -118,7 +118,7 @@ class Commands:
     def one_liners(self, *args, **kwargs):
         """Gets a list of common oneliners."""
         topic = kwargs["topic"]
-        url = f"{URL}h/{topic}/1line?T"
+        url = f"{URL}/{topic}/1line?T"
         return self._basic_command(url)
 
     def weird(self, *args, **kwargs):
