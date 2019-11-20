@@ -1,20 +1,32 @@
 from slack_cheat.commands import Commands
+from slack_cheat.bot import create_bot
+from decouple import config
 
-commander = Commands()
-accepted_topics = [topic.lower() for topic in commander.list_topics().split("\n")]
+TOKEN = config("BOT_USER_OAUTH_ACCESS_TOKEN")
+print(TOKEN)
 
-new_topic = "Rust"
-new_topic = new_topic.lower()
+import slack
 
-if new_topic in accepted_topics:
-    commander.add_topic(new_topic)
-else:
-    raise ValueError
+rtm_client = create_bot(TOKEN)
+rtm_client.start()
+
+
+# commander = Commands()
+# accepted_topics = [topic.lower() for topic in commander.list_topics().split("\n")]
+
+# new_topic = "Rust"
+# new_topic = new_topic.lower()
+
+# if new_topic in accepted_topics:
+#    commander.add_topic(new_topic)
+# else:
+#    raise ValueError
 # print(commander)
 # commander.execute("rust")
-sub = "how to parse a string?"
-result = commander.execute("rust", sub_topic=sub)
-print(result)
+
+# sub = "how to parse a string?"
+# result = commander.execute("rust", sub_topic=sub)
+# print(result)
 
 # topic = "python"
 # commands.execute("hello", topic="python")
